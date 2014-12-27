@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'clips/show'
+
+  get 'photos/show'
+
+  devise_for :users
+  root 'clips#index'
+
+  get ":user_id/photos/:photo_id", to: "photos#show", as: :photo_permalink
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
